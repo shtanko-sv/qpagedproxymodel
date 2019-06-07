@@ -1,0 +1,13 @@
+dist: xenial
+language: cpp
+addons:
+  apt:
+    update: true
+    packages:
+      - qt5-default
+
+compilers:
+  - gcc
+  - clang
+
+script: mkdir build && cd build && cmake .. && cmake --build .
