@@ -6,8 +6,20 @@ addons:
     packages:
       - qt5-default
 
+install:
+  - pushd /tmp
+  - wget https://github.com/google/googletest/archive/release-1.8.1.tar.gz
+  - tar -zxvf release-1.8.1.tar.gz
+  - cd googletest-release-1.8.1
+  - mkdir build
+  - cd build
+  - cmake ..
+  - cmake --build .
+  - sudo $(which cmake) --build . --target install
+  - popd
+
 compilers:
   - gcc
   - clang
 
-script: mkdir build && cd build && cmake .. && cmake --build .
+script: mkdir build && cd build && cmake -DQPAGEDPROXYMODEL_BUILD_TESTS=ON .. && cmake --build . && ctest
