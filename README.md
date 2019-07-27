@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/shtanko-sv/qpagedproxymodel.svg?branch=master)](https://travis-ci.org/shtanko-sv/qpagedproxymodel)
+
 # QPagedProxyModel
 
 This Qt proxy model show source model by pages.
