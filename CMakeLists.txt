@@ -6,7 +6,7 @@ option(QPAGEDPROXYMODEL_BUILD_DEMO "Enable building gui demo app" OFF)
 option(QPAGEDPROXYMODEL_COVERAGE "Add flags for source coverage report" OFF)
 option(QPAGEDPROXYMODEL_USE_QT4 "Force use Qt4" OFF)
 
-if (NOT QPAGEDPROXYMODEL_QT4)
+if (NOT QPAGEDPROXYMODEL_USE_QT4)
     find_package(Qt5Widgets)
     find_package(Qt5Core)
 endif()
