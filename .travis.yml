@@ -4,7 +4,6 @@ addons:
   apt:
     update: true
     packages:
-      - qt5-default
       - googletest
 
 install:
@@ -18,6 +17,12 @@ install:
   - cd ..
   - sudo rm -rf build
   - popd
+  - if [ "$QT_VERSION" = "4" ]; then sudo apt install -qqy qt4-default; fi
+  - if [ "$QT_VERSION" = "5" ]; then sudo apt install -qqy qt5-default; fi
+
+env:
+  - QT_VERSION="4"
+  - QT_VERSION="5"
 
 compiler:
   - gcc
