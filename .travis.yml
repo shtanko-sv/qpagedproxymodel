@@ -1,21 +1,22 @@
-dist: xenial
+dist: bionic
 language: cpp
 addons:
   apt:
     update: true
     packages:
       - qt5-default
+      - googletest
 
 install:
-  - pushd /tmp
-  - wget https://github.com/google/googletest/archive/release-1.8.1.tar.gz
-  - tar -zxvf release-1.8.1.tar.gz
-  - cd googletest-release-1.8.1
-  - mkdir build
+  - pushd /usr/src/googletest
+  - sudo mkdir build
+  - sudo chown -R $(whoami) build
   - cd build
   - cmake ..
   - cmake --build .
-  - sudo $(which cmake) --build . --target install
+  - find -name "*.a" -exec sudo cp {} /usr/local/lib/ \;
+  - cd ..
+  - sudo rm -rf build
   - popd
 
 compiler:
