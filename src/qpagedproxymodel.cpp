@@ -69,12 +69,6 @@ int QPagedProxyModel::pageSize() const {
 }
 
 
-/*!
- * \brief QPagedProxyModel::setPageSize устанавливает размер страницы в \a page.
- *
- * Если \a page является отрицательным значением, то размер страницы будет сброшен
- * в значени по умолчанию.
- */
 void QPagedProxyModel::setPageSize(int size) {
     Q_D (QPagedProxyModel);
     if (d->pageSize == size)
