@@ -5,6 +5,7 @@ addons:
     update: true
     packages:
       - googletest
+      - gcovr
 
 install:
   - pushd /usr/src/googletest
@@ -28,4 +29,12 @@ compiler:
   - gcc
   - clang
 
-script: mkdir build && cd build && cmake -DQPAGEDPROXYMODEL_BUILD_TESTS=ON -DCMAKE_CXX_COMPILER="$CXX" -DCMAKE_C_COMPILER="$C" .. && cmake --build . && ctest
+script: 
+  - mkdir build 
+  - cd build
+  - cmake -DQPAGEDPROXYMODEL_BUILD_TESTS=ON -DQPAGEDPROXYMODEL_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER="$CXX" -DCMAKE_C_COMPILER="$C" .. 
+  - cmake --build . 
+  - ctest
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
