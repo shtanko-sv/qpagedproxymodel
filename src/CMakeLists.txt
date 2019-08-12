@@ -20,7 +20,7 @@ SET(CMAKE_AUTOMOC ON)
 
 add_library(${_TARGET} SHARED ${_HEADERS} ${_SOURCES})
 target_compile_options(${_TARGET} PRIVATE ${COVERAGE_COMPILE_FLAGS})
-target_link_libraries(${_TARGET} ${COVERAGE_LINK_FLAGS} ${COVERAGE_LIBRARIES} ${Qt_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(${_TARGET} ${Qt_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 set_target_properties(${_TARGET} PROPERTIES SOVERSION ${_VERSION})
 coverage_target(${_TARGET})
 
