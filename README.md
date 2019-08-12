@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/shtanko-sv/qpagedproxymodel.svg?branch=master)](https://travis-ci.org/shtanko-sv/qpagedproxymodel)
+[![codecov](https://codecov.io/gh/shtanko-sv/qpagedproxymodel/branch/master/graph/badge.svg)](https://codecov.io/gh/shtanko-sv/qpagedproxymodel)
 
 # QPagedProxyModel
 
